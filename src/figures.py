@@ -119,9 +119,36 @@ def channel_chart(path: str = "reports/figs/canais.png") -> str:
     return path
 
 
+def gate_chart(path: str = "reports/figs/gate.png") -> str:
+    """Duas execuções do DataEngineer: o gate quantitativo em ação."""
+    labels = ["Staging\n(antes)", "Execução 1\npatch rejeitado", "Execução 2\npatch aprovado"]
+    values = [1442, 3655, 0]
+    colors = [INK_2, CRIT, GOOD]
+
+    fig, ax = plt.subplots(figsize=(8.6, 3.6), dpi=200)
+    _style(ax)
+    bars = ax.bar(labels, values, color=colors, width=0.52)
+    for bar, val in zip(bars, values):
+        ax.text(bar.get_x() + bar.get_width() / 2, val + 90, f"{val:,}".replace(",", "."),
+                ha="center", fontsize=12, fontweight="bold", color=INK)
+
+    ax.annotate("gate barrou\n(2,5× pior)", xy=(1, 3655), xytext=(1.42, 3050),
+                fontsize=9, color=CRIT, fontweight="bold",
+                arrowprops=dict(arrowstyle="->", color=CRIT, linewidth=1.4))
+
+    ax.set_title("Linhas com canal fora do domínio — o gate em ação",
+                 fontsize=12, color=INK, fontweight="bold", pad=14, loc="left")
+    ax.set_ylabel("linhas", fontsize=9, color=INK_2)
+    ax.set_ylim(0, 4400)
+    fig.tight_layout()
+    fig.savefig(path, facecolor=SURFACE)
+    plt.close(fig)
+    return path
+
+
 def main() -> list[str]:
     OUT.mkdir(parents=True, exist_ok=True)
-    paths = [seasonality_chart(), channel_chart()]
+    paths = [seasonality_chart(), channel_chart(), gate_chart()]
     for p in paths:
         print(f"[ok] {p}")
     return paths
