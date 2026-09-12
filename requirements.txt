@@ -11,3 +11,4 @@ langchain-openai>=0.1.0
 openai>=1.40.0
 crewai>=0.56.0
 python-dotenv>=1.0.1
+matplotlib>=3.8.0
