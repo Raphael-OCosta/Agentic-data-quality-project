@@ -8,6 +8,15 @@
 venv/
 env/
 
+# Resíduos de sincronização do OneDrive
+__*/
+____*/
+*_All_Errors.txt
+*_Error.txt
+
+# Config local do editor
+.vscode/
+
 # Python
 __pycache__/
 *.py[cod]
