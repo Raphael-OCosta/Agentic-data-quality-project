@@ -1,0 +1,42 @@
+{
+  "tasks": {
+    "A1": {
+      "description": "Analisar o baseline atual da tabela stg.sales para identificar discrepâncias e áreas de melhoria.",
+      "steps": [
+        "Carregar os dados da tabela stg.sales.",
+        "Calcular o número de linhas, pares duplicados, linhas duplicadas, registros com customer_id ausente e preços zero ou nulos.",
+        "Calcular os percentis 1 e 99 para a coluna unit_price.",
+        "Comparar os resultados com o baseline medido.",
+        "Gerar um relatório em 'reports/baseline_analysis.json' com as métricas calculadas e comparações."
+      ]
+    },
+    "E1": {
+      "description": "Propor um patch SQL para corrigir as discrepâncias identificadas na análise do baseline.",
+      "steps": [
+        "Escrever uma consulta SQL para remover ou corrigir registros duplicados.",
+        "Incluir lógica para tratar registros com customer_id ausente, substituindo por um valor padrão ou removendo-os.",
+        "Corrigir registros com preços zero ou nulos, substituindo por um valor padrão ou removendo-os.",
+        "Normalizar os valores de channel_raw para garantir que estejam dentro do domínio válido.",
+        "Salvar a consulta SQL proposta em 'reports/patch_proposal.sql'."
+      ]
+    },
+    "V1": {
+      "description": "Validar o patch proposto em um ambiente de teste (dry-run) para garantir que as correções funcionem conforme esperado.",
+      "steps": [
+        "Executar a consulta SQL proposta em um ambiente de teste sem aplicar as mudanças permanentemente.",
+        "Verificar se o número de linhas, duplicatas e registros inválidos foram corrigidos conforme esperado.",
+        "Comparar os novos percentis 1 e 99 com os valores do baseline.",
+        "Gerar um relatório de validação em 'reports/validation_report.json' com os resultados do dry-run."
+      ]
+    },
+    "R1": {
+      "description": "Revisar os resultados da validação e redigir uma análise de causa raiz (RCA) para documentar as causas das discrepâncias e as soluções aplicadas.",
+      "steps": [
+        "Revisar os resultados do relatório de validação.",
+        "Identificar as causas principais das discrepâncias encontradas na análise do baseline.",
+        "Documentar as soluções aplicadas e quaisquer ajustes necessários no patch.",
+        "Gerar um relatório de RCA em 'reports/rca_report.json' detalhando as causas e soluções."
+      ]
+    }
+  }
+}

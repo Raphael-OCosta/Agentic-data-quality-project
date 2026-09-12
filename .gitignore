@@ -1,0 +1,22 @@
+﻿# Segredos — NUNCA versionar
+.env
+.env.*
+!.env.example
+
+# Ambiente virtual
+.venv*/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Banco e artefatos gerados
+*.duckdb
+*.duckdb.wal
+reports/*.csv
+
+# SO / editor
+.DS_Store
+Thumbs.db

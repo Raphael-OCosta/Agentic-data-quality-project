@@ -1,0 +1,6 @@
+{
+  "fallback_acionado": true,
+  "motivo": "patch gerado pelo agente não executou em dry-run",
+  "patch_do_agente_preservado_em": "reports/patch_agent_rejected.sql",
+  "patch_efetivo": "reports/patch_reference.sql"
+}

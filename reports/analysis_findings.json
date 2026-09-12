@@ -1,0 +1,76 @@
+{
+  "findings": [
+    {
+      "problem": "Queda de vendas em 09/07",
+      "evidence": {
+        "dev_vs_ma7": -0.307106599,
+        "ma7_prev": 56.2857142857,
+        "n_rows": 39,
+        "n_rows_wow": 51
+      },
+      "business_impact": "A queda de 09/07 é sazonalidade de negócio, possivelmente devido ao feriado em SP, já que o desvio em relação à média móvel de 7 dias é negativo e significativo.",
+      "priority": "alta"
+    },
+    {
+      "problem": "Pico de vendas em 15/07",
+      "evidence": {
+        "dev_vs_ma7": 0.5961538462,
+        "ma7_prev": 52.0,
+        "n_rows": 83,
+        "dup_rows_no_dia": 26
+      },
+      "business_impact": "O pico de 15/07 é suspeito de ser causado por double ingestion, pois houve 26 linhas duplicadas, o que compromete a integridade dos dados.",
+      "priority": "alta"
+    },
+    {
+      "problem": "Duplicidade de registros",
+      "evidence": {
+        "n_dup_pairs": 26,
+        "n_dup_rows": 52.0
+      },
+      "business_impact": "A presença de 26 pares duplicados e 52 linhas duplicadas pode levar a análises incorretas e decisões de negócios baseadas em dados imprecisos.",
+      "priority": "alta"
+    },
+    {
+      "problem": "Registros com customer_id ausente",
+      "evidence": {
+        "n_missing_customer": 88.0
+      },
+      "business_impact": "A ausência de 88 registros de customer_id pode afetar a segmentação de clientes e a personalização de ofertas.",
+      "priority": "média"
+    },
+    {
+      "problem": "Preços zero ou nulos",
+      "evidence": {
+        "n_price_zero_or_null": 51.0
+      },
+      "business_impact": "A presença de 51 registros com preços zero ou nulos pode distorcer a análise de receita e impactar a estratégia de precificação.",
+      "priority": "média"
+    },
+    {
+      "problem": "Label drift de channel_norm",
+      "evidence": {
+        "fora_do_dominio": [
+          {
+            "channel_raw": "market_place",
+            "channel_norm": "market_place",
+            "n": 597
+          },
+          {
+            "channel_raw": "store",
+            "channel_norm": "store",
+            "n": 439
+          },
+          {
+            "channel_raw": "on-line",
+            "channel_norm": "on_line",
+            "n": 406
+          }
+        ]
+      },
+      "business_impact": "A variação nos rótulos de canal pode levar a inconsistências na análise de canais e na alocação de recursos de marketing.",
+      "priority": "baixa"
+    }
+  ],
+  "notes": "As análises indicam a necessidade de correções nos dados para garantir a precisão nas decisões de negócios."
+}

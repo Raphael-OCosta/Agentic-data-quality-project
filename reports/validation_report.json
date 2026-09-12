@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-09-11T14:42:14.301311+00:00",
+  "patch_file": "reports/patch.sql",
+  "syntax_ok": true,
+  "execution_error": null,
+  "blocked_commands": [],
+  "missing_requirements": [],
+  "unknown_columns": [],
+  "before_after": {
+    "stg": {
+      "n": 5117,
+      "dup_est": 26,
+      "n_price_zero_or_null": 51.0,
+      "n_missing_customer": 88.0,
+      "n_channel_labels": 6,
+      "n_channel_off_domain": 1442.0,
+      "p01": 33.8652,
+      "p99": 229.2788000000005
+    },
+    "gold_simulated": {
+      "n": 5091,
+      "dup_est": 0,
+      "n_price_zero_or_null": 0.0,
+      "n_missing_customer": 88.0,
+      "n_channel_labels": 3,
+      "n_channel_off_domain": 0.0,
+      "p01": 33.8652,
+      "p99": 229.2788
+    },
+    "gold_real": {
+      "n": 5091,
+      "dup_est": 0,
+      "n_price_zero_or_null": 0.0,
+      "n_missing_customer": 88.0,
+      "n_channel_labels": 3,
+      "n_channel_off_domain": 0.0,
+      "p01": 33.8652,
+      "p99": 229.2788
+    }
+  },
+  "applied": true,
+  "require_human_approval": true,
+  "gates": {
+    "drop_ratio": 0.0051,
+    "checks": {
+      "dedupe_zerou_duplicatas": true,
+      "p99_nao_aumentou": true,
+      "canal_dentro_do_dominio": true,
+      "customer_id_nao_inventado": true,
+      "perda_de_linhas_aceitavel": true
+    },
+    "ok": true
+  },
+  "decision": "APROVADO para aplicar",
+  "forced": false,
+  "snapshot": "reports/gold_snapshot.csv",
+  "notes": "Patch aplicado após aprovação humana explícita (--approve)."
+}

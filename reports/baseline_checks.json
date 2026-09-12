@@ -1,0 +1,11 @@
+{
+  "n_rows": 5117,
+  "n_dup_pairs": 26,
+  "n_dup_rows": 52.0,
+  "n_missing_customer": 88.0,
+  "n_price_zero_or_null": 51.0,
+  "n_qty_invalid": 0.0,
+  "n_date_null": 0.0,
+  "p01": 33.8652,
+  "p99": 229.2788000000005
+}
